@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ResizeComponent from './Components/ResizeComponent.jsx';
+import EnhanceImage from './Components/Upscale/EnhanceImage.jsx';
 
 export default function Wallpaper() {
     const [wallpaper, setWallpaper] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [aspectRatio, setAspectRatio] = useState(null);
+    // const [aspectRatio, setAspectRatio] = useState(null);
 
     const params = useParams();
     useEffect(() => {
@@ -33,20 +34,31 @@ export default function Wallpaper() {
     }, [params.wallpaperId]);
 
     return (
+        <>
+                <div className="container mx-auto p-4">
+            <a href="/" >Homepage</a>
+        </div>
       <div className='max-w-3xl mx-auto p-5'>
         {loading && <p>Loading...</p>}
         {wallpaper &&  (
-        <div className='flex flex-col gap-5 border-1'>
-            <h1 className='font-semibold text-4xl border-1'> <span className='text-[#c7a6bd] border-1'>{wallpaper.category}</span> // {wallpaper.title}</h1>
-            <img src={wallpaper.img} alt="" className='rounded-sm border-1'/>
+        <div className='flex flex-col gap-5'>
+            <h1 className='font-semibold text-4xl'> <span className='text-[#c7a6bd]'>{wallpaper.category}</span> // {wallpaper.title}</h1>
+            <img src={wallpaper.img} alt="" className='rounded-sm'/>
             {wallpaper.width && wallpaper.height &&(
             <div>
               <span>Image Dimensions:</span> <span className="bg-[#c9b1a8] p-2">{wallpaper.width} x {wallpaper.height}</span>
             </div>
             )}
-            <a className='border-1 w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950 border-1 ' href={wallpaper.img} target='_blank'  >
-                Download Wallpaper
+            <div className="flex flex-row gap-2" >
+            <a className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' href={wallpaper.img} target='_blank'  >Download Wallpaper
             </a>
+            {/* e_gen_restore */}
+            {wallpaper.height < 1440 && (
+                <EnhanceImage url={wallpaper.img} />
+            )}
+
+            </div>
+
             {wallpaper.width && wallpaper.height && (
                 <ResizeComponent width={wallpaper.width} height={wallpaper.height} url={wallpaper.img} />
             )}
@@ -61,5 +73,7 @@ export default function Wallpaper() {
         )}
         {error && <p>{error}</p>}
       </div>
+        </>
+
     );
 }
