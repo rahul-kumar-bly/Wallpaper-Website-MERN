@@ -1,3 +1,4 @@
+import { set } from 'mongoose';
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
@@ -57,10 +58,11 @@ export default function Submit() {
                 method: 'POST',
                 body: formDataToSend
             });
+            res.json({success: true})
             const data = await res.json();
             console.log("Upload Success:", data);
             setLoading(false)
-            navigate('/')
+            navigate('/')           
         } catch (error) {
             setLoading(false)
             setError('Error occurred while uploading wallpaper:', error)
@@ -121,7 +123,7 @@ export default function Submit() {
                 <label htmlFor="tags">Tags (separated by commas):</label>
                 <input type="text" id="tags" onChange={handleChange} className="text-white border p-2 rounded-sm" />
                 
-                <button className='bg-[#71b4c7] p-3 rounded-sm cursor-pointer uppercase font-semibold hover:opacity-90 border-1' type="submit">{loading ? "Uploading Wallpaper...." : "Upload Wallpaper"}</button>
+                <button className='bg-[#71b4c7] p-3 rounded-sm cursor-pointer uppercase font-semibold hover:opacity-90' type="submit">{loading ? "Uploading Wallpaper...." : "Upload Wallpaper"}</button>
                 </div>
                 )}
 

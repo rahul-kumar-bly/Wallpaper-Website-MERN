@@ -1,19 +1,16 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Homepage.jsx'
-import Signup from './pages/Signup.jsx'
-import Signin from './pages/Signin.jsx'
 import Submit from './pages/Submit.jsx'
-import Profile from './pages/Profile.jsx'
+import Wallpaper from './pages/Wallpaper.jsx'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/signin' element={<Signin />} />
-          <Route path='/profile' element={<Profile />} />
           <Route path='/submit' element={<Submit />} />
+          <Route path='/wallpaper' element={<Wallpaper />} />
+          <Route path='/wallpaper/:wallpaperId' element={<Wallpaper />} />
       </Routes>
     </BrowserRouter>
   )

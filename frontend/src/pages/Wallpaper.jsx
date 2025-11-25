@@ -47,7 +47,6 @@ export default function Wallpaper() {
             <a className='border-1 w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950 border-1 ' href={wallpaper.img} target='_blank'  >
                 Download Wallpaper
             </a>
-
             {wallpaper.width && wallpaper.height && (
                 <ResizeComponent width={wallpaper.width} height={wallpaper.height} url={wallpaper.img} />
             )}

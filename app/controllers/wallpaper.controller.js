@@ -38,7 +38,7 @@ export const uploadWallpaper = async (req, res, next) => {
             altTitle: altTitle,
             category: category,
             tags: tags,
-            uploadedBy: req.user.username,
+            uploadedBy: "rahul",
         });
         res.status(200).send(newWallpaper)
     } catch (error) {
@@ -50,7 +50,8 @@ export const uploadWallpaper = async (req, res, next) => {
 export const uploadFileMiddleware = upload.single('img');
 
 export const getWallpapers = async (req, res, next) => {
-    const wallpaper = await Wallpaper.find();
+
+   const wallpaper = await Wallpaper.find()
     if (!wallpaper) {
         return next(404, 'No wallpapers found.');
     }

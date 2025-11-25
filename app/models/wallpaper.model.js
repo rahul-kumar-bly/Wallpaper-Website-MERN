@@ -36,11 +36,8 @@ const wallpaperSchema = new mongoose.Schema({
     tags:{
         type: String,
     },
-    timestamp: {
-        type: Date,
-        default: Date.now
-    }
-});
+}, {timestamps: true}
+);
 
 const Wallpaper = mongoose.model('Wallpaper', wallpaperSchema);
 export default Wallpaper;

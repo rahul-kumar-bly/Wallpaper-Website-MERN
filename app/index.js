@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import authRouter from "./routes/auth.route.js"
 import wallpaperRouter from "./routes/wallpaper.route.js"
 import cookieParser from "cookie-parser";
 
@@ -24,7 +23,6 @@ mongoose
         console.log(`Error connecting to mongodb ${err}`);
     })
 
-app.use('/app/auth', authRouter);
 app.use('/app/wallpaper', wallpaperRouter);
 
 app.use((err, req, res, next)=> {
