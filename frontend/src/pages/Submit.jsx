@@ -59,8 +59,6 @@ export default function Submit() {
                 body: formDataToSend
             });
             res.json({success: true})
-            const data = await res.json();
-            console.log("Upload Success:", data);
             setLoading(false)
             navigate('/')           
         } catch (error) {
