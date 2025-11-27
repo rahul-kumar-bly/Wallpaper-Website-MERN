@@ -56,6 +56,7 @@ export const getWallpapers = async (req, res, next) => {
         return next(404, 'No wallpapers found.');
     }
     console.log('wallpaper is', wallpaper.length)
+    res.setHeader('Content-Type', 'application/json');
     return res.status(200).json(wallpaper)
 }
 
