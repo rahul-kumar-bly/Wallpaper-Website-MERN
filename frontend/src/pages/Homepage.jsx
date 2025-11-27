@@ -28,7 +28,8 @@ export default function Home()
                         Wallpapper Website
                     </div>
                     <div className="container p-4">
-                         <div><a href="/submit" className="hover:underline hover:text-blue-500 underline">Submit New Wallpaper</a></div>
+                        
+                         <div><Link to="/submit" className="hover:underline hover:text-blue-500 underline">Submit New Wallpaper</Link></div>
                     </div>
                 </div>
                 <div className='grid  grid-cols-2 md:grid-cols-4 gap-4'>

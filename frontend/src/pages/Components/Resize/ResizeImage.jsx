@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import { Link } from 'react-router-dom'
 import findResolution from "../../../methods/findResolution.js";
 import {aspectRatioData} from "../../../methods/common_res.js";
 
@@ -70,8 +71,8 @@ export default function ResizeImage({url, height, ap}) {
                     {resizeObj.map(
                         obj => Object.entries(obj).map(([_, value]) => (
                             <li key={_} className="text-blue-800 hover:underline cursor-pointer font-semibold bg-amber-500 p-1 hover:bg-amber-800 hover:text-white">
-                                <a target="_blank" href={url.replace('/upload/', `/upload/${value}/`)}>{value.replace('w_', "").replace("h_", "x").replace(",", "")}
-                                </a>
+                                <Link target="_blank" to={url.replace('/upload/', `/upload/${value}/`)}>{value.replace('w_', "").replace("h_", "x").replace(",", "")}
+                                </Link>
                                 </li>
                         ))
                     )}

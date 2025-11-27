@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import {Link} from 'react-router-dom';
 
 export default function EnhanceImage({url}) {
 
@@ -17,9 +18,9 @@ export default function EnhanceImage({url}) {
 
     return (
         <div>
-            <a className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' href={eScaleUrl} target='_blank'  >
+            <Link className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' to={eScaleUrl} target='_blank'  >
                 Download Enhanced Version
-            </a>
+            </Link>
         </div>
     )
 }
