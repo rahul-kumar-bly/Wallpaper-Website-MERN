@@ -17,10 +17,10 @@ export default function EnhanceImage({url}) {
     console.log('value of noRes is')
 
     return (
-        <div>
+        <>
             <Link className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' to={eScaleUrl} target='_blank'  >
                 Download Enhanced Version
             </Link>
-        </div>
+        </>
     )
 }

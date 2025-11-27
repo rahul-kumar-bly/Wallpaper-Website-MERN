@@ -37,13 +37,12 @@ export default function Wallpaper() {
     return (
         <>
                 <div className="container mx-auto p-4">
-            <Link to="/" >Homepage</Link>
         </div>
       <div className='max-w-3xl mx-auto p-5'>
         {loading && <p>Loading...</p>}
         {wallpaper &&  (
         <div className='flex flex-col gap-5'>
-            <h1 className='font-semibold text-4xl'> <span className='text-[#c7a6bd]'>{wallpaper.category}</span> // {wallpaper.title}</h1>
+            <h1 className='font-semibold text-4xl uppercase'> <span className='text-[#c7a6bd]'>{wallpaper.category}</span> // {wallpaper.title}</h1>
             <img src={wallpaper.img} alt="" className='rounded-sm'/>
             {wallpaper.width && wallpaper.height &&(
             <div>
@@ -51,15 +50,13 @@ export default function Wallpaper() {
             </div>
             )}
             <div className="flex flex-row gap-2" >
-            <Link className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' to={wallpaper.img} target='_blank'  >Download Wallpaper
-            </Link>
-            {/* e_gen_restore */}
-            {wallpaper.height < 1440 && (
-                <EnhanceImage url={wallpaper.img} />
-            )}
-
+                <Link className='w-[50%] p-3 uppercase rounded-sm bg-[#3e5749] text-white font-semibold text-center hover:opacity-95 border-emerald-950' to={wallpaper.img} target='_blank'  >Download Wallpaper
+                </Link>
+                {/* e_gen_restore */}
+                {wallpaper.height < 1440 && (
+                    <EnhanceImage url={wallpaper.img} />
+                )}
             </div>
-
             {wallpaper.width && wallpaper.height && (
                 <ResizeComponent width={wallpaper.width} height={wallpaper.height} url={wallpaper.img} />
             )}

@@ -26,16 +26,7 @@ export default function Home()
 
     return (
             <div className="container mx-auto p-4">
-                <div className='flex justify-end'>
-                    <div>
-                        Wallpapper Website
-                    </div>
-                    <div className="container p-4">
-                        
-                         <div><Link to="/submit" className="hover:underline hover:text-blue-500 underline">Submit New Wallpaper</Link></div>
-                    </div>
-                </div>
-                <div className='grid  grid-cols-2 md:grid-cols-4 gap-4'>
+                <div className='grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-1 gap-1'>
                     {wallpapers && wallpapers.length > 0 &&(
                         wallpapers.map((wallpaper, index) => (
                             <div key={index}>
