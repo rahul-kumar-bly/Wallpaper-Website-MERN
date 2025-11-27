@@ -2,13 +2,16 @@ import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import WallpaperItem from './Components/WallpaperItem.jsx'
 
+
+
 export default function Home()
 {
     const [wallpapers, setWallpapers] = useState([])
+    const API_BASE = import.meta.env.VITE_API_BASE;
     useEffect(() => {
             const fetchWallpapers = async () => {
                 try {
-                    const res = await fetch(`/app/wallpaper/get`, {
+                    const res = await fetch(`${API_BASE}/app/wallpaper/get`, {
                         method: 'GET'
                     });
                     const data = await res.json();

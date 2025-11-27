@@ -53,7 +53,8 @@ export default function Submit() {
         formDataToSend.append("tags", formData.tags);
 
         try {
-            const res = await fetch('/app/wallpaper/upload', {
+            const API_BASE = import.meta.env.VITE_API_BASE;
+            const res = await fetch(`${API_BASE}/app/wallpaper/upload`, {
                 method: 'POST',
                 body: formDataToSend
             });

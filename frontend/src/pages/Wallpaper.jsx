@@ -14,7 +14,8 @@ export default function Wallpaper() {
         const fetchListing = async () => {
             try {
                 setLoading(true);
-                const res = await fetch(`/app/wallpaper/get/${params.wallpaperId}`);
+                const API_BASE = import.meta.env.VITE_API_BASE;
+                const res = await fetch(`${API_BASE}/app/wallpaper/get/${params.wallpaperId}`);
                 const data = await res.json();
                 if (data.success === false) {
                     setError(true);
