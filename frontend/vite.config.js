@@ -11,7 +11,7 @@ export default defineConfig({
   server:{
     proxy:{
       '/app':{
-        target: 'http://localhost:8080',
+        target: 'https://wallpaper-website-mern-production.up.railway.app',
         secure: false,
         changeOrigin: true
       }
