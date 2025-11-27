@@ -1,4 +1,3 @@
-import { set } from "mongoose";
 import {useState, useEffect} from "react";
 
 export default function EnhanceImage({url}) {
