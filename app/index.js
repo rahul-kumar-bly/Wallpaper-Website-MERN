@@ -3,12 +3,16 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import wallpaperRouter from "./routes/wallpaper.route.js"
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: 'https://wallpaper-website-mern.vercel.app',
+}));
 
 app.listen(8080, ()=> {
     console.log(`listening server on port 8080`);
